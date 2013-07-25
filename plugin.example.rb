@@ -1,7 +1,7 @@
 require 'yaml' # No, this won't be used. Just be sure to put all requires up here.
 
 class ExamplePlugin
-	$pluginlist << ["Example Plugin", ExamplePlugin] # ["Plugin Name", ClassName]
+	$plugin_list << ["Example Plugin", ExamplePlugin] # ["Plugin Name", ClassName]
 
 	def self.on_channel(m) # For normal messages.
 		case m.message
