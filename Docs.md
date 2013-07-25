@@ -48,7 +48,7 @@ end
 
 There are currently 3 functions you should know to define.
 
--  self.on_channel
+- self.on_channel
 
 - self.on_command
 
