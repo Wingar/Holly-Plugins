@@ -48,11 +48,11 @@ end
 
 There are currently 3 functions you should know to define.
 
-- ```self.on_channel```
+-  self.on_channel
 
-- ```self.on_command```
+- self.on_command
 
-- ```self.on_admin```
+- self.on_admin
 
 These should all be defined in the plugin class, not anywhere else. 
 ```self.on_channel``` should be defined with one parameter, usually "m" and will be referred to as "m" for the documentation. 
@@ -68,6 +68,6 @@ The "m" parameter is the same as before, however "query" is the stuff that comes
 As a little note, normally with queries and messages, I try to use regex in cases. I'd prefer you to use cases for sake of code consistency, regexes arent required or anything, but it's nice.
 
 # Database
-```TODO```
+**TODO**
 
 For any more information, the code examples should suffice.
