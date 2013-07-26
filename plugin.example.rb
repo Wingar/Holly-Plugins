@@ -3,6 +3,13 @@ require 'yaml' # No, this won't be used. Just be sure to put all requires up her
 class ExamplePlugin
 	$plugin_list << ["Example Plugin", ExamplePlugin] # ["Plugin Name", ClassName]
 
+	def self.on_private(m) # For private messages
+		case m.message
+		when /^Hello!$/i
+			m.reply "Hello, #{m.user.nick}!"
+		end
+	end
+
 	def self.on_channel(m) # For normal messages.
 		case m.message
 		when /^testing\stesting$/ix

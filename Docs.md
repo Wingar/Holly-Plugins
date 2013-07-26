@@ -46,16 +46,15 @@ class PluginName
 end
 ```
 
-There are currently 3 functions you should know to define.
+There are currently 4 functions you should know to define.
 
--  self.on_channel
-
-- self.on_command
-
-- self.on_admin
+- ```self.on_private```
+- ```self.on_channel```
+- ```self.on_command```
+- ```self.on_admin```
 
 These should all be defined in the plugin class, not anywhere else. 
-```self.on_channel``` should be defined with one parameter, usually "m" and will be referred to as "m" for the documentation. 
+```self.on_channel``` and ```self.on_private``` should be defined with one parameter, usually "m" and will be referred to as "m" for the documentation. 
 This is the message parameter.
 
 ```self.on_command``` and ```self.on_admin``` should be defined with two parameters. "m" as before and "query."
@@ -65,9 +64,27 @@ The "m" parameter is the same as before, however "query" is the stuff that comes
 
 ```self.on_admin``` is the same as ```self.on_command```, except for admin's only. Only admins will be able to execute the commands. They won't even appear to exist for normal users.
 
+```self.on_private``` is exactly what it sounds like. It's on private messages. There's no command system here, so if you want it you'll have to make it yourself. If there's enough demand or I feel the need, I'll add it.
+
 As a little note, normally with queries and messages, I try to use regex in cases. I'd prefer you to use cases for sake of code consistency, regexes arent required or anything, but it's nice.
 
 # Database
-**TODO**
+**WIP**
+
+Right now, the database stuff is pure Datamapper, so I'll start off by just pointing you to the (excellent) Datamapper docs.
+
+[Datamapper Documentation](http://datamapper.org/docs/)
+
+For code consistency, make all functions to do with your database as ```self.command```'s. No exceptions, no sticking them in your ```plugin.x.rb```, only in ```database.x.rb``` and only within the relevant database class.
+
+For more information on database work, use the Datamapper docs and the example provided.
+
+
+# Misc
+**Everything else**
+
+When using regexes for command input, always, always, always use case insensitivity. The only time you should not use it is very specific scenarios where case sensitivity doesn't matter or would break something.
+
+Plugins should go by the naming scheme ```plugin.x.rb``` and for database functions ```database.x.rb```. If you need a subfolder for data storage or extra functions or anything, that's fine, but make sure to call it the same name as your plugin file name. (eg, plugin is called ```plugin.example.rb``` your folder should be called simply "example")
 
 For any more information, the code examples should suffice.
